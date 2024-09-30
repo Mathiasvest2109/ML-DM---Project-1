@@ -40,6 +40,13 @@ print(X.columns)
 print("\nTarget (y):")
 print(y.columns)
 
+# Display results
+print("Vector:", X)
+print("Mean:", mean_x)
+print("Standard Deviation:", std_x)
+print("Median:", median_x)
+print("Range:", range_x)
+
 # Save the features dataset (X) to a CSV file
 X.to_csv("features.csv", index=False)
 
