@@ -1,6 +1,5 @@
 import importlib_resources
 import numpy as np
-<<<<<<< HEAD
 import scipy.linalg as linalg
 from matplotlib.pyplot import (
     cm,
@@ -16,10 +15,7 @@ from matplotlib.pyplot import (
     yticks,
 )
 from scipy.io import loadmat
-=======
 import pandas as pd
-
->>>>>>> 7ef6b96031cf448ed84088e743eb6fe945d017ce
 from ucimlrepo import fetch_ucirepo 
   
 # fetch dataset 
@@ -43,11 +39,8 @@ print(X.columns)
 print("\nTarget (y):")
 print(y.columns)
 
-<<<<<<< HEAD
 # Save the features dataset (X) to a CSV file
 X.to_csv("features.csv", index=False)
 
 #Add prprocessing to account for missing values in dataset before introducing SVD
-=======
 
->>>>>>> 7ef6b96031cf448ed84088e743eb6fe945d017ce
