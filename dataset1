@@ -16,10 +16,6 @@ from matplotlib.pyplot import (
 )
 from scipy.io import loadmat
 import pandas as pd
-<<<<<<< HEAD
-=======
-
->>>>>>> 895959c95625ef32425a63874e1abae72537a5f3
 from ucimlrepo import fetch_ucirepo 
   
 # fetch dataset 
@@ -43,21 +39,7 @@ print(X.columns)
 print("\nTarget (y):")
 print(y.columns)
 
-<<<<<<< HEAD
-=======
-# Display results
-print("Vector:", X)
-print("Mean:", mean_x)
-print("Standard Deviation:", std_x)
-print("Median:", median_x)
-print("Range:", range_x)
-
->>>>>>> 895959c95625ef32425a63874e1abae72537a5f3
 # Save the features dataset (X) to a CSV file
 X.to_csv("features.csv", index=False)
 
 #Add prprocessing to account for missing values in dataset before introducing SVD
-<<<<<<< HEAD
-
-=======
->>>>>>> 895959c95625ef32425a63874e1abae72537a5f3
