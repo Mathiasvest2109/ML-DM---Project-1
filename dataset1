@@ -25,6 +25,10 @@ heart_disease = fetch_ucirepo(id=45)
 X = heart_disease.data.features 
 y = heart_disease.data.targets 
 
+X['target'] = y
+print(X)
+  
+# metadata 
 #print(heart_disease.metadata) 
   
 # variable information 
