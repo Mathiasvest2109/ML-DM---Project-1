@@ -7,22 +7,9 @@ X = pd.read_csv("features.csv")
 #X = X.fillna(0)
 X = X.dropna()
 chosenfeature = "target"
-meow = X
 X = X.drop(columns=chosenfeature)
 attributeNames = X.columns
-
-classLabels = pd.cut(meow[chosenfeature], [-1,0, np.inf],labels=['no disease', 'disease' ])
-
-classnames=sorted(set(classLabels))
-classDict = dict(zip(classnames, range(len(classnames))))
-
-# Extract vector y, convert to NumPy array
-y = np.asarray([classDict[value] for value in classLabels])
-
-N= len(y)
-M= len(attributeNames)
-C= len(classnames)
-
+N=len(X["age"])
 # Subtract the mean from the data and divide by the attribute standard
 # deviation to obtain a standardized dataset:
 Ys = X.to_numpy() - np.ones((N, 1)) * X.mean().to_numpy()
@@ -46,13 +33,6 @@ V = Vh.T  # For the direction of V to fit the convention in the course we transp
 # principal directions such that the directions match for Y1 and Y2.
 
 V = -V
-U = -U
-
-# Compute variance explained
-rho = (S * S) / (S * S).sum()
-
-# Compute the projection onto the principal components
-Z = U * S
 
 # Plot attribute coefficients in principal component space
 colors = plt.cm.tab20(np.linspace(0, 1, len(attributeNames)))
