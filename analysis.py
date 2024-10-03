@@ -11,6 +11,8 @@ meow = X
 X = X.drop(columns=chosenfeature)
 attributeNames = X.columns
 
+print("minmax",X.min()["chol"],X.max()["chol"])
+
 classLabels = pd.cut(meow[chosenfeature], [-1,0, np.inf],labels=['no disease', 'disease' ])
 
 classnames=sorted(set(classLabels))
@@ -62,10 +64,10 @@ i = 0
 j = 1
 
 # Make the plot
-plt.figure(figsize=(6, 10))
+plt.figure(figsize=(6, 5))
 plt.subplots_adjust(hspace=0.6)
 plt.title("Heart disease with regard to "+chosenfeature+": Effect of standardization")
-nrows = 3
+nrows = 2
 ncols = 1
 for k in range(1):
     k=1
@@ -95,25 +97,8 @@ for k in range(1):
     plt.legend(classnames)
     plt.axis("equal")
 
-    # Plot attribute coefficients in principal component space
-    plt.subplot(nrows, ncols, 1 + k)
-    for att in range(V.shape[1]):
-        plt.arrow(0, 0, V[att, i], V[att, j])
-        plt.text(V[att, i], V[att, j], attributeNames[att])
-    plt.xlim([-1, 1])
-    plt.ylim([-1, 1])
-    plt.xlabel("PC" + str(i + 1))
-    plt.ylabel("PC" + str(j + 1))
-    plt.grid()
-    # Add a unit circle
-    plt.plot(
-        np.cos(np.arange(0, 2 * np.pi, 0.01)), np.sin(np.arange(0, 2 * np.pi, 0.01))
-    )
-    plt.title(titles[k] + "\n" + "Attribute coefficients")
-    plt.axis("equal")
-
     # Plot cumulative variance explained
-    plt.subplot(nrows, ncols, 2 + k)
+    plt.subplot(nrows, ncols, 1 + k)
     plt.plot(range(1, len(rho) + 1), rho, "x-")
     plt.plot(range(1, len(rho) + 1), np.cumsum(rho), "o-")
     plt.plot([1, len(rho)], [threshold, threshold], "k--")

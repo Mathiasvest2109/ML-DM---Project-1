@@ -28,8 +28,6 @@ def getName(input):
 
 for i in range(13):
         plt.subplot(4,4,i+1)
-        interval = int(X.max(axis=0)[attributeNames[i]]-X.min(axis=0)[attributeNames[i]])+1
         plt.hist(X[attributeNames[i]],bins=X[attributeNames[i]].nunique() if X[attributeNames[i]].nunique() > 10 else X[attributeNames[i]].nunique()*2)
-        
         plt.title(getName(attributeNames[i]))
 plt.show()

@@ -62,11 +62,11 @@ i = 0
 j = 1
 
 # Make the plot
-plt.figure(figsize=(6, 10))
+plt.figure(figsize=(10, 10))
 plt.subplots_adjust(hspace=0.6)
 plt.title("Heart disease with regard to "+chosenfeature+": Effect of standardization")
-nrows = 13
-ncols = 13
+nrows = 10
+ncols = 10
 
 k=1
 # Obtain the PCA solution by calculate the SVD of either Y1 or Y2
@@ -85,14 +85,14 @@ rho = (S * S) / (S * S).sum()
 Z = U * S
 
 # Plot projection
-for yaxis in range(13):
-    for xaxis in range (13):
-        plt.subplot(nrows, ncols, xaxis*13+yaxis+1)
+for yaxis in range(10):
+    for xaxis in range (10):
+        plt.subplot(nrows, ncols, xaxis*10+yaxis+1)
         C = len(classnames)
         for c in range(C):
-            plt.plot(Z[y == c, xaxis], Z[y == c, yaxis], ".", alpha=0.5)
+            plt.plot(Z[y == c, yaxis], Z[y == c, xaxis], ".", alpha=0.5)
         if (yaxis == 0): plt.ylabel("PC" + str(xaxis + 1))
-        if (xaxis == 12): plt.xlabel("PC" + str(yaxis + 1))
+        if (xaxis == 9): plt.xlabel("PC" + str(yaxis + 1))
         plt.xticks([])  
         plt.yticks([])
         

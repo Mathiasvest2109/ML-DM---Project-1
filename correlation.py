@@ -9,6 +9,9 @@ X = pd.read_csv("features.csv")
 #X = X.fillna(0)    
 X = X.dropna()
 X = X.drop(columns="target")
+
+X_standardized = (X - X.mean()) / X.std()
+
 # Step 2: Compute the correlation matrix
 corr_matrix = X.corr()
 
